@@ -32,7 +32,7 @@ describe "Project Listing" do
     	visit "/"
 
     	expect(current_path).to eq(root_path)
-    	page.should have_selector(".navbar ul li.activa a", text: "Home")
+    	page.should have_selector(".navbar ul li.active a", text: "Home")
     	expect(page).to have_selector('.navbar ul li.active a', text: "Home")
     	
     	page.find(".navbar ul").click_link("Projects")
