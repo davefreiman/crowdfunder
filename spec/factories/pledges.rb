@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :pledge do
-    user_id 1
-    project 1
-    amount 1
+    user
+    project
+    amount 100
   end
 end
