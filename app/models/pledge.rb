@@ -7,4 +7,6 @@ class Pledge < ActiveRecord::Base
   validates :user, :presence => true
   validates :project, :presence => true
   validates :amount, :numericality => {:only_integer => true, :greater_than => 1}
+
+
 end
