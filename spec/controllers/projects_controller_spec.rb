@@ -1,5 +1,5 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe ProjectsController do
+# describe ProjectsController do
 
-end
+# end

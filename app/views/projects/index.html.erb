@@ -2,9 +2,7 @@
 
 <h3>Listing projects</h3>
 
+<%= render "layouts/shared/project_list" %>
 
-<% @projects.each do |project| %>
-	<p><%= link_to project.title, project_path(project) %> </p>
-<% end %>	
 
 

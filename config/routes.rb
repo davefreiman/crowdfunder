@@ -7,6 +7,10 @@ Crowdfunder::Application.routes.draw do
   resources :users
   resources :sessions
 
+  namespace :my do 
+    resources :projects # => My::ProjectsController
+  end
+
   match 'login' => 'sessions#new', :as => :login
   match 'logout' => 'sessions#destroy', :as => :logout 
 
