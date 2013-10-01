@@ -23,6 +23,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 group :tools do
   gem 'guard-rspec' # automatically runs our tests whenever there have been changes made to them
