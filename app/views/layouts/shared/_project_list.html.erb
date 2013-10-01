@@ -1,3 +1,8 @@
+
+
+
+<ul>
 <% @projects.each do |project| %>
-	<div class="project"><%= link_to project.title, project_path(project) %> </div>
+	<div class="project"><li class="project"><%= link_to project.title, project_path(project) %> </li></div>
 <% end %>	
+</ul>
