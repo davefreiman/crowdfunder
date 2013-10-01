@@ -7,11 +7,18 @@
           <li class="<%= 'active' if current_page? root_path %>">
             <%= link_to 'Home', :root %>
           </li>
-          <li class= "<%= 'active' if params[:controller] == "projects"%>">
+          <li class= "<%= 'active' if controller_name == "projects"%>">
             <%= link_to 'Projects', :projects %>
           </li>
         </ul>
       </div>
+      <div class="pull-right">
+          <% if logged_in? %>
+            <%= link_to 'Logout', logout_path, method: :destroy, class: 'btn' %>
+          <% else %>
+            <%= link_to 'Sign Up', [:new, :user], class: 'btn btn-primary' %>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>

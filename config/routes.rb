@@ -1,7 +1,15 @@
 Crowdfunder::Application.routes.draw do
+  get "user_sessions/new"
+
+  get "user_sessions/create"
+
+  post "user_sessions/destroy", :as => "logout"
+
   resources :projects 
+  resources :users
 
   root :to => "welcome#index"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
