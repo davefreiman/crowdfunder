@@ -1,0 +1,6 @@
+
+
+# Begin Whenever generated tasks for: /Users/dfreiman/Desktop/Bitmaker/crowdfunder/config/schedule.rb
+0 0 * * * /bin/bash -l -c 'cd /Users/dfreiman/Desktop/Bitmaker/crowdfunder && RAILS_ENV=development bundle exec rake mail:project_status --silent'
+
+# End Whenever generated tasks for: /Users/dfreiman/Desktop/Bitmaker/crowdfunder/config/schedule.rb
