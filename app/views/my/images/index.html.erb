@@ -1,10 +1,19 @@
+<div class="row image-form pull-right">
 <%= form_for([:my, @project, @image]) do |f| %>
 	<%= f.file_field :file %>
 	<%= f.submit "Upload Image" %>
 <% end %>
+</div>
 
 <% @images.each do |i| %>
-	<div class = "image"> 
+<div class="row">
+
+	<div class= "image pull-right span10"> 
 		<img src= "<%= i.file %>" />		
 	</div>
+	<div class="pull-left span2">
+		<%= link_to 'Delete Image',[:my, @project, i], :method => :delete, class: 'btn btn-danger' %>
+	</div>
+</div>	
+
 <% end %>

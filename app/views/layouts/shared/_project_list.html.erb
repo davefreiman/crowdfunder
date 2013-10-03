@@ -1,8 +1,20 @@
 
 
 
-<ul>
+<div class="row">	
 <% @projects.each do |project| %>
-	<div class="project"><li class="project"><%= link_to project.title, project_path(project) %> </li></div>
+	<% if @projects.index(project) % 3 == 0 %>
+		</div>
+		<div class="row">
+	<%end%>		
+	<div class="pull-left span4"><p class="project text-center">
+		<% if current_page? projects_path %>
+			<%= link_to project.title, project_path(project) %> - <%= project.teaser%> 
+		<% else %>	
+			<%= link_to project.title, my_project_path(project) %> - <%= project.teaser%>
+		<% end %>	
+		</p>
+		<img class="img-circle" src="<%=project.images.first.file_url(:thumb) if project.images.first %>" />
+	</div>	
 <% end %>	
-</ul>
+</div>

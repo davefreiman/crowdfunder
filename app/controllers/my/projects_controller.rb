@@ -7,6 +7,10 @@ class My::ProjectsController < ApplicationController
     @projects = current_user.projects.order('projects.created_at DESC').all
   end
 
+  def show
+    @project = current_user.projects.find(params[:id])
+  end
+
   def new
     @project = current_user.projects.build
   end

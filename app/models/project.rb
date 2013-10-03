@@ -18,7 +18,7 @@ class Project < ActiveRecord::Base
   def percent_raised
     ((raised.to_f / goal) * 100).to_i
   end
-
+  
   def succeeded?
     percent_raised >= 100
   end

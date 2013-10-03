@@ -1,1 +1,32 @@
 @import "bootstrap";
+
+.hero-unit {
+	color: #afc4da;
+	text-shadow: -1px 1px black;
+	background-image: url("http://gsrealtyteam.com/wp-content/uploads/2013/07/sihlouette.jpg");
+	background-size: 940px 400px;
+	background-repeat: no-repeat;
+	height: 400px;
+	background-color: white;
+}
+
+.home-subheader {
+	text-align: center;
+	background-color: #afc4da;
+	color: black;
+	text-shadow: none; 
+}
+
+.span4 {
+	text-align: center;
+}
+
+.hero-unit .btn-inverse {
+	background-image: linear-gradient(to bottom, #afc4da, #b5c4d4);
+	color: black;
+}
+
+.hero-unit .btn-inverse:hover {
+	background-color: #b5c4d4;
+	color: #777a7e;
+}

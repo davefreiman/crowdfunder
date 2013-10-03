@@ -5,19 +5,28 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 
 <%= render 'layouts/shared/nav' %>
 
-<% if flash[:notice] %>
-  <p class="welcome"><%= flash[:notice] %></p>
-<% end %>
-<% if flash[:alert] %>
-  <p class="welcome"><%= flash[:alert] %></p>
-<% end %>
+
 <div class="container">
+
+	<% if flash[:notice] %>
+	<div class="success">
+	  <p class="text-success"><%= flash[:notice] %></p>
+	</div>  
+	<% end %>
+
+
+	<% if flash[:alert] %>
+	<div class="alert">
+	  <p class="text-error"><%= flash[:alert] %></p>
+	</div>  
+	<% end %>
 <%= yield %>
 </div>
 

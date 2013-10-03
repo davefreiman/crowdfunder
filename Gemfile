@@ -9,6 +9,7 @@ gem 'pg'
 gem 'sorcery'
 gem 'carrierwave'
 gem 'whenever', :require => false
+gem 'rmagick'
 
 # Gems used only for assets and not required
 # in production environments by default.

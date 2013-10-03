@@ -15,6 +15,7 @@ Crowdfunder::Application.routes.draw do
 
   match 'login' => 'sessions#new', :as => :login
   match 'logout' => 'sessions#destroy', :as => :logout 
+  match 'delete_image' => 'my/images#destroy', :as => :delete_image
 
   root :to => "welcome#index"
 

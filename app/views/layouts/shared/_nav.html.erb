@@ -1,11 +1,10 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="/">CrowdFunder</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li class="<%= 'active' if @nav == :home %>">
-            <%= link_to 'Home', :root %>
+          <li class="<%= 'active' if @nav == :home %> brand">
+            <%= link_to 'CrowdFunder', :root %>
           </li>
           <li class= "<%= 'active' if @nav == :projects %>">
             <%= link_to 'Projects', :projects %>

@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="page-header">
+		<div><h1><%= @project.title %>  
+
+			<small class="pull-right"><%= @project.teaser %></small><br>	
+			<% if current_page? my_project_path(@project)%> 		
+				<a class="btn btn-mini btn-inverse" <%= link_to "Manage Images", my_project_images_path(@project) %></a> 
+				<a class="btn btn-mini btn-info" <%= link_to "Edit Project", edit_my_project_path(@project)%></a> 
+			<% end %>
+		</h1></div>
+	</div>	
+	<div class="row-fluid">
+		<div class="span5">
+			<p>Goal: $<%= @project.goal %></p>
+			<div class="progress"> 
+				<div class="bar" style="width: <%= @project.percent_raised %>%"> </div>
+			</div>
+			<p><%= @project.description%></p>
+
+			<a class="btn btn-primary" <%= link_to "Back This Project", new_project_pledge_path(@project) %> </a>
+		</div>	
+
+		<div class= "span7">
+			<% @project.images.each do |img| %>
+			<img src="<%= img.file %>" class="img-rounded"/>
+			<% end %>
+		</div>
+	</div>
+</div>

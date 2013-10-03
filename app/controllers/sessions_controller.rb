@@ -4,17 +4,12 @@ class SessionsController < ApplicationController
   end
   
   def create
-    respond_to do |format|
       if @user = login(params[:email],params[:password])
-        format.html { redirect_back_or_to(projects_path, :notice => 'Login successful.') }
+         redirect_back_or_to(projects_path, :notice => 'Login successful.') 
       else
-        format.html { flash.now[:alert] = "Login failed. Shit's Invalid"; render :action => "new" }
+        flash.now[:alert] = "Login failed. Invalid params" 
+        render :action => "new" 
       end
-    end
-  end
-    
-
-  def show
   end
     
   def destroy

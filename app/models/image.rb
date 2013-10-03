@@ -7,3 +7,5 @@ class Image < ActiveRecord::Base
   validates :project, presence: true
   validates :file, presence: true
 end
+
+
