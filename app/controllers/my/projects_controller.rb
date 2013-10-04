@@ -4,7 +4,8 @@ class My::ProjectsController < ApplicationController
   before_filter :require_project, except: [:index, :new, :create]
 
   def index
-    @projects = current_user.projects.order('projects.created_at DESC').all
+    # @projects = current_user.projects.order('projects.created_at DESC').all
+    @projects = current_user.projects.by_completion_percentage.page(params[:page])
   end
 
   def show

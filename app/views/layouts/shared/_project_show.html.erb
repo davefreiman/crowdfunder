@@ -1,23 +1,28 @@
 <div class="container">
-	<div class="page-header">
-		<div><h1><%= @project.title %>  
+	<div class="page-header project-show-header">
+		<h1><%= @project.title %> 
+			<div class="show-buttons pull-right">
+				<% if current_page? my_project_path(@project)%> 	
+					<%= link_to "Manage Images", my_project_images_path(@project), class: "btn btn-small btn-inverse pull-right" %>
+					<%= link_to "Edit Project", edit_my_project_path(@project), class: "margarine btn btn-small btn-info pull-right"%>
+				<% else %>	
+					<%= link_to "Back This Project", new_project_pledge_path(@project), remote: true, class: "btn btn-primary pull-right" %>
+				<% end %> 
+			</div>
+			<br>	<small class="pull-left"><%= @project.teaser %></small>
+			
 
-			<small class="pull-right"><%= @project.teaser %></small><br>	
-			<% if current_page? my_project_path(@project)%> 		
-				<a class="btn btn-mini btn-inverse" <%= link_to "Manage Images", my_project_images_path(@project) %></a> 
-				<a class="btn btn-mini btn-info" <%= link_to "Edit Project", edit_my_project_path(@project)%></a> 
-			<% end %>
-		</h1></div>
-	</div>	
+		</h1></div>	
 	<div class="row-fluid">
 		<div class="span5">
-			<p>Goal: $<%= @project.goal %></p>
-			<div class="progress"> 
-				<div class="bar" style="width: <%= @project.percent_raised %>%"> </div>
+			<p class="lead">Goal: $<%= @project.goal %></p>
+			<p class="text-center">Progress: <%= @project.percent_raised %>%</p>
+			<div class="progress progress-striped <%= 'progress-success' if @project.succeeded? %>">
+				<div class="bar" style="width: <%= @project.percent_raised %>%"><%= "SUCCEEDED!" if @project.succeeded? %>
+</div>
 			</div>
 			<p><%= @project.description%></p>
-
-			<a class="btn btn-primary" <%= link_to "Back This Project", new_project_pledge_path(@project) %> </a>
+			
 		</div>	
 
 		<div class= "span7">

@@ -7,14 +7,35 @@
 		</div>
 		<div class="row">
 	<%end%>		
-	<div class="pull-left span4"><p class="project text-center">
-		<% if current_page? projects_path %>
-			<%= link_to project.title, project_path(project) %> - <%= project.teaser%> 
+	<div class="pull-left span4"><p class="project text-center"><p class="lead">
+		<% if current_user == project.user %>
+			<%= link_to project.title, my_project_path(project) %> </p> <%= project.teaser%> 
 		<% else %>	
-			<%= link_to project.title, my_project_path(project) %> - <%= project.teaser%>
+			<%= link_to project.title, project_path(project) %></p> <%= project.teaser%>
 		<% end %>	
 		</p>
-		<img class="img-circle" src="<%=project.images.first.file_url(:thumb) if project.images.first %>" />
+		<div class="progress progress-striped <%= 'progress-success' if project.succeeded? %>">
+			<div class="bar" style="width: <%= project.percent_raised %>%"><%= "SUCCEEDED!" if project.succeeded? %> </div>
+		</div>	
+		<% if project.images.first %>
+
+			<% if current_user == project.user %>
+				<%= link_to image_tag(project.images.first.file_url(:thumb), :class => "img-circle"), my_project_path(project) %>
+			<% else %>	
+				<%= link_to image_tag(project.images.first.file_url(:thumb), :class => "img-circle"), project_path(project) %>
+			<%end%>
+
+		<% else %>
+		
+			<% if current_user == project.user %>
+				<%= link_to image_tag("dog.png", :class => "img-circle"), my_project_path(project) %>
+			<% else %>	
+				<%= link_to image_tag("dog.png", :class => "img-circle"), project_path(project) %>
+			<%end%>
+		
+		<% end %>	
+		<br>
+
 	</div>	
 <% end %>	
 </div>

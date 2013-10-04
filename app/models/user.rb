@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true
 
   def name
-  	"#{self.(first_name)} #{self.(last_name)}"
+  	"#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
 end

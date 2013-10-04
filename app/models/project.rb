@@ -11,6 +11,8 @@ class Project < ActiveRecord::Base
   validates :description, presence: true
   validates :goal, presence: true, numericality: {greater_than: 0, allow_blank: true}
 
+  scope :by_completion_percentage, -> {joins("LEFT OUTER JOIN pledges ON projects.id = pledges.project_id").group("projects.id").order("SUM(amount)*100/goal DESC NULLS LAST")}
+
   def raised
     self.pledges.sum(:amount)
   end
@@ -28,6 +30,6 @@ class Project < ActiveRecord::Base
   end
 
   def number_of_supporters
-    self.supporters.uniq.count # if you make two pledges, you are still one supporter
+    self.supporters.uniq.count
   end
 end

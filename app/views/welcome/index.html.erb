@@ -1,8 +1,48 @@
 <div class="hero-unit">
 	<h1> Welcome to CrowdFunder! </h1>
 	<br>
-<div class="row">	
-	<p class="span5 home-subheader"> A total rip-off of Kickstarter</p> <a class="pull-right btn btn-inverse btn-large" <%= link_to "Get Started Today!", new_user_path %> </a>
-</div>	
+	<div class="row">	
+		<p class="span5 home-subheader"> A total rip-off of Kickstarter</p>
+		<% if !current_user %> 
+			<%= link_to "Get Started Today!", new_user_path, class: "pull-right btn btn-inverse btn-large" %>
+		<% else %>
+			<%= link_to "See My Projects", my_projects_path, class: "pull-right btn btn-inverse btn-large" %>
+		<% end %>		
+	</div>	
+
+</div>
+</div> <!-- ending container div -->
+<div id="unit-2"> 
+	<h1 class="page-header">Get Traction In Four Easy Steps!</h1>
+
+	<ol class="inline"> 
+	<div class="row">	
+		<li class="span3 margaleft lead"><%= link_to "Visit Kickstarter!", "http://kickstarter.com" %>
+			<br>
+			<%= image_tag ("high-kick.png")%>
+		</li>
+		<li class="span3 lead">Steal an Interesting Idea
+					<br>
+			<%= image_tag ("thief.png")%></li>
+		<li class="span3 lead">Post it on CrowdFunder
+					<br>
+			<%= image_tag ("crowd2.png")%></li>
+		<li class="span3 lead">Profit!!!!!!
+					<br>
+			<%= image_tag ("profit.png")%></li>
+	</div>	
+	</ol>
+
+	<div class="row"> 		
+		<blockquote class="span9 offset1">
+		  <p><strong>The theory of general relativity would never have come to me had I not stolen the idea from Hans Schneider when I worked at the Patent Office in Berlin. CrowdFunder is yet another exceptional forum to rip off people's brilliant ideas in front of their very eyes. </strong></p>
+		  <small>Albert Einstein</small>
+	</div>	  
+	<div class="row"> 	  
+		<blockquote class="span9 offset1">
+		  <p><strong>CrowdFunder perfectly summarizes my philosophy in creating Facebook. Find someone else's viable idea, fund it and build it behind their backs, and become a heralded superstar while alienating all your friends. A true recipe for success. </strong></p>
+		  <small>Mark Zuckerberg</small> 
+		</blockquote>	
+	</div>
 
 </div>

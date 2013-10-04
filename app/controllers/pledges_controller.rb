@@ -4,6 +4,11 @@ class PledgesController < ApplicationController
 
   def new
     @pledge = @project.pledges.build
+
+    respond_to do |format|
+      format.html {}
+      format.js
+    end
   end
 
   def create
@@ -12,7 +17,7 @@ class PledgesController < ApplicationController
 
     if @pledge.save
       UserMailer.new_pledge(@pledge).deliver
-      redirect_to @project, notice: "Nice! Thanks for pledging $#{@pledge.amount} for this project."
+      redirect_to project_path(@project), notice: "Nice! Thanks for pledging $#{@pledge.amount} for this project."
     else
       render :new
     end

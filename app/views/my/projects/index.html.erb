@@ -1,5 +1,4 @@
 
-<h1 class="page-header"><%= current_user.first_name.capitalize %>'s Projects</h1>
+<h1 class="page-header"><%= current_user.name %>'s Projects <%= link_to "New Project", new_my_project_path, class: "btn btn-inverse pull-right" %></h1>
 <p> <%= render "layouts/shared/project_list" %> </P>
 
-<p><%= link_to "New Project", new_my_project_path %></p>
